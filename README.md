@@ -1,50 +1,69 @@
-# Welcome to your Expo app 👋
+# Embrapii Mobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Description
 
-## Get started
+Embrapii Mobile is a mobile application built using React Native and Expo. It provides a platform for managing projects and companies, offering features such as project tracking, company details, and more.
 
-1. Install dependencies
+## Features
+
+- Project management and tracking
+- Company information and details
+- Responsive design for mobile devices
+
+## Setup
+
+To set up the project locally, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/embrapii_mobile.git
+   cd embrapii_mobile
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Start the development server:**
 
    ```bash
-    npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+   You can also use the following commands to start the app on specific platforms:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   - Android: `npm run android`
+   - iOS: `npm run ios`
+   - Web: `npm run web`
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Scripts
 
-## Get a fresh project
+- `npm start`: Start the Expo development server.
+- `npm run android`: Start the app on an Android device/emulator.
+- `npm run ios`: Start the app on an iOS simulator.
+- `npm run web`: Start the app in a web browser.
+- `npm run test`: Run tests using Jest.
+- `npm run lint`: Run ESLint to check for code quality issues.
 
-When you're ready, run:
+## Dependencies
 
-```bash
-npm run reset-project
-```
+The project uses the following main dependencies:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- React: 18.3.1
+- React Native: 0.76.7
+- Expo: ~52.0.38
+- React Navigation: ^7.0.15
+- And more...
 
-## Learn more
+For a complete list of dependencies, refer to the `package.json` file.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Development
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+The project is set up with TypeScript, ESLint, and Prettier for code quality and consistency. Jest is used for testing.
 
-## Join the community
+## License
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the MIT License.
