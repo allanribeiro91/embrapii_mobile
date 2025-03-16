@@ -1,10 +1,15 @@
 {
   "expo": {
-    "name": "embrapii_mobile",
+    "name": "Datapii",
     "slug": "embrapii_mobile",
     "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"],
+    "fonts": {
+      "TitilliumWeb-Regular": "./assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf",
+      "TitilliumWeb-Bold": "./assets/fonts/Titillium_Web/TitilliumWeb-Bold.ttf"
+    },
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/embrapii-icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -15,7 +20,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.akosr91.embrapii_mobile"
     },
     "web": {
       "bundler": "metro",
@@ -27,15 +33,23 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/embrapii-logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#090E12"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "fee18c56-fb1d-4f04-a7ce-3db9ccab25f8"
+      }
     }
   }
 }
