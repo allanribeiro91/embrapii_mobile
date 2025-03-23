@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: theme.colors.background,
     padding: 20,
+    gap: 20
   },
 });

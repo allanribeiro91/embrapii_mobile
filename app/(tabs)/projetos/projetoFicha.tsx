@@ -1,20 +1,23 @@
 // tabs/projetos/projetoFicha.tsx
-import React from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import theme from '../../styles/theme';
 import { IconArrowLeft } from '@/app/components/Icons';
-import { useNavigation } from 'expo-router';
+import { useFocusEffect, useNavigation } from 'expo-router';
 import { dataProjeto, detalheProjeto } from '@/app/data/dataProjeto';
 import { BodyIndex } from '@/app/components/BodyIndex';
 import Accordion from '@/app/components/Accordion';
+import { CommonActions } from '@react-navigation/native';
 
 export default function ProjetoFicha() {
   const navigation = useNavigation();
+
+
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Pressable onPress={() => navigation.navigate('ProjetosMain')}>
+        <Pressable onPress={() => navigation.dispatch(CommonActions.goBack())}>
           <IconArrowLeft color={theme.colors.verdePii} />
         </Pressable>
         <Text style={styles.headerText}>Detalhes do Projeto</Text>
@@ -108,6 +111,8 @@ export default function ProjetoFicha() {
           </Accordion>
         </View>
       </BodyIndex>
+
+      
     </View>
   );
 }
@@ -189,5 +194,25 @@ const styles = StyleSheet.create({
   },
   accordionTextSubtitulo: {
     color: theme.colors.verdePiiClaro,
+  },
+  footerCustom: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 60, // Ajuste conforme seu design
+    backgroundColor: theme.colors.backHeaderFooter,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // Se quiser sombrear acima do tab bar
+    // elevation: 4, // Android
+    // shadowColor: '#000', // iOS
+    // shadowOffset: { width: 0, height: -2 },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 4,
+  },
+  footerText: {
+    color: theme.colors.white,
+    fontFamily: 'TitilliumWeb-Regular',
   },
 });

@@ -3,6 +3,7 @@
     "name": "Datapii",
     "slug": "embrapii_mobile",
     "version": "1.0.0",
+    "entryPoint": "./index.tsx",
     "assetBundlePatterns": ["**/*"],
     "fonts": {
       "TitilliumWeb-Regular": "./assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf",
@@ -18,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/embrapii-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.akosr91.embrapii_mobile"
@@ -29,7 +30,6 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
       [
         "expo-splash-screen",
         {
@@ -40,9 +40,7 @@
         }
       ]
     ],
-    "experiments": {
-      "typedRoutes": true
-    },
+
     "extra": {
       "router": {
         "origin": false

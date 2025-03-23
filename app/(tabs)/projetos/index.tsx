@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ProjetosScreen from './ProjetosMain';
+import ProjetosScreen from './ProjetosScreen';
 import ProjetoFicha from './projetoFicha';
 import Header from '@/app/components/Header';
 
@@ -14,7 +14,7 @@ export default function ProjetosStack() {
         component={ProjetosScreen}
         options={{
           // Header personalizado (ou reutilize seu componente <Header /> se quiser)
-          header: () => <Header title="Projetos PD&I" />,
+          header: () => null,
           animation: 'slide_from_left',
         }}
       />

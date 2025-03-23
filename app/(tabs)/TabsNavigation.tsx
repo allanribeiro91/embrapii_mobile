@@ -47,7 +47,7 @@ export default function TabsNavigation() {
           borderTopWidth: 0,
           borderTopColor: 'transparent',
         },
-
+        // tabBarStyle: false,
         tabBarLabelStyle: {
           fontFamily: 'TitilliumWeb-Regular',
         },
@@ -55,36 +55,9 @@ export default function TabsNavigation() {
         tabBarInactiveTintColor: theme.colors.white,
       })}
     >
-      <Tab.Screen
-        name="Projetos"
-        component={ProjetosStack}
-        options={({ route }) => {
-          // Verifica qual rota está ativa dentro do Stack "ProjetosStack"
-          const routeName =
-            getFocusedRouteNameFromRoute(route) ?? 'ProjetosMain';
 
-          // Se a rota ativa for "projetoFicha", escondemos a tab bar
-          const isFicha = routeName === 'projetoFicha';
 
-          return {
-            headerShown: false,
-            title: 'Projetos',
-            tabBarIcon: ({ color, size }) => (
-              <IconProjetos color={color} size={size} />
-            ),
-            tabBarStyle: isFicha
-              ? { display: 'none' }
-              : {
-                  backgroundColor: theme.colors.backHeaderFooter,
-                  height: 70,
-                  paddingTop: 5,
-                  borderTopWidth: 0,
-                  borderTopColor: 'transparent',
-                },
-          };
-        }}
-      />
-
+      <Tab.Screen name="Projetos" component={ProjetosStack} />
       <Tab.Screen name="Unidades" component={Unidades} />
       <Tab.Screen name="Empresas" component={Empresas} />
       <Tab.Screen name="Números" component={Numeros} />
