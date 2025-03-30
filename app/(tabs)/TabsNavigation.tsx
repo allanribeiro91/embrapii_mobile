@@ -18,6 +18,7 @@ import Numeros from './numeros';
 import { tabMapping } from './tabMapping';
 import ProjetosStack from './projetos';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import UnidadesStack from './unidades';
 
 const Tab = createBottomTabNavigator();
 
@@ -57,10 +58,10 @@ export default function TabsNavigation() {
     >
 
 
-      <Tab.Screen name="Projetos" component={ProjetosStack} />
-      <Tab.Screen name="Unidades" component={Unidades} />
-      <Tab.Screen name="Empresas" component={Empresas} />
       <Tab.Screen name="Números" component={Numeros} />
+      <Tab.Screen name="Projetos" component={ProjetosStack} />
+      <Tab.Screen name="Unidades" component={UnidadesStack} />
+      <Tab.Screen name="Empresas" component={Empresas} />
     </Tab.Navigator>
   );
 }
