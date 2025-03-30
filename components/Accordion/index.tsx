@@ -9,7 +9,7 @@ import {
   Platform,
   UIManager,
 } from 'react-native';
-import theme from '@/app/styles/theme';
+import theme from '@/styles/theme';
 import { IconKeyboardArrowDown, IconKeyboardArrowUp } from '../Icons';
 
 // Ativa animação de layout no Android

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable, FlatList } from 'react-native';
-import theme from '../../styles/theme';
+import theme from '@/styles/theme';
 import { BodyIndex } from '../../components/BodyIndex';
 // import listaProjetos from '../../data/listagem_projetos.json';
 import { useNavigation, useRouter } from 'expo-router';
@@ -11,7 +11,6 @@ import { useFocusEffect } from '@react-navigation/native';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import listaProjetosOriginal from '../../data/listagem_projetos.json';
-import dataUnidade from '../../data/dataUnidade.json';
 
 type Projeto = {
   codigo_projeto: string;
@@ -28,20 +27,22 @@ type Projeto = {
   _perc_valor_unidade_embrapii: number;
 };
 
-export default function UnidadesScreen() {
-  const [search, setSearch] = useState('');
+export default function ProjetosScreen() {
+
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const ITEMS_PER_PAGE = 50;
   const [visibleProjetos, setVisibleProjetos] = useState<Projeto[]>([]);
   const [listaProjetos, setListaProjetos] = useState<Projeto[]>([]);
-
+  
   const filteredProjetos = useMemo(() => {
     return listaProjetos.filter((projeto) => {
       return Object.values(projeto).some((valor) =>
-        String(valor).toLowerCase().includes(search.toLowerCase()),
+        String(valor).toLowerCase().includes(search.toLowerCase())
       );
     });
   }, [search, listaProjetos]);
+
 
   useEffect(() => {
     const start = 0;
@@ -49,13 +50,14 @@ export default function UnidadesScreen() {
     setVisibleProjetos(filteredProjetos.slice(start, end));
   }, [filteredProjetos, page]);
 
+
   useEffect(() => {
     const carregarProjetos = async () => {
       if (listaProjetos.length > 0) return;
-
+  
       const cache = await AsyncStorage.getItem('listaProjetos');
       const dados = cache ? JSON.parse(cache) : listaProjetosOriginal;
-
+      
       setListaProjetos((prev) => {
         if (JSON.stringify(prev) !== JSON.stringify(dados)) {
           return dados;
@@ -63,20 +65,15 @@ export default function UnidadesScreen() {
         return prev;
       });
     };
-
+  
     carregarProjetos();
   }, []);
+  
+  
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: theme.colors.background,
-        paddingTop: 20,
-        paddingHorizontal: 15,
-        paddingBottom: 10,
-      }}
-    >
+    <View style={{ flex: 1, backgroundColor: theme.colors.background, paddingTop: 20, paddingHorizontal: 15, paddingBottom: 10 }}>
+      
       {/* 🔍 Barra de Pesquisa Fixa */}
       <View style={styles.filterContainer}>
         <View style={styles.filterInputContainer}>
@@ -92,70 +89,29 @@ export default function UnidadesScreen() {
           <MaterialIcons name="search" size={18} color="#fff" />
         </View>
       </View>
-
+  
       {/* 📋 Lista Scrollável */}
       <FlatList
+
         style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
-        data={dataUnidade}
-        keyExtractor={(item) => item.unidade}
-        renderItem={({ item: unidade }) => (
+        data={visibleProjetos}
+        keyExtractor={(item) => item.codigo_projeto}
+        renderItem={({ item: projeto }) => (
           <Pressable
             style={styles.card}
-            onPress={() =>
-              router.navigate({
-                pathname: '/projetos/[codigo_projeto]',
-                params: { codigo_projeto: unidade.unidade },
-              })
-            }
+            onPress={() => router.push(`/projetos/${projeto.codigo_projeto}`)}
           >
-            <Text style={styles.cardTitulo}>
-              {unidade.status === 'Ativo' ? '🟢  ' : '🔴  '}
-              {unidade.unidade.toUpperCase()}
+            <Text style={styles.cardText}>
+              {projeto.status === 'Em andamento' ? '🟢' : '🔴'} {projeto.codigo_projeto}
             </Text>
-
-            <View style={styles.cardBox}>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Ano de credenciamento: </Text>
-                <Text style={styles.cardText}>
-                  {unidade.ano_credenciamento}
-                </Text>
-              </View>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Tipo de instituição: </Text>
-                <Text style={styles.cardText}>{unidade.tipo_instituicao}</Text>
-              </View>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Município-UF: </Text>
-                <Text style={styles.cardText}>{unidade.uf_municipio}</Text>
-              </View>
-            </View>
-
-            <View style={styles.cardBox}>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>PEO: </Text>
-                <Text style={styles.cardText}>{unidade.peo}</Text>
-              </View>
-            </View>
-
-            <View style={styles.cardBox}>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Nº de Projetos: </Text>
-                <Text style={styles.cardText}>{unidade.n_projetos}</Text>
-              </View>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Nº de Empresas: </Text>
-                <Text style={styles.cardText}>{unidade.n_empresas}</Text>
-              </View>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Satisfação das empresas: </Text>
-                <Text style={styles.cardText}>{unidade.satisfacao_projetos}</Text>
-              </View>
-              <View style={styles.cardValor}>
-                <Text style={styles.cardText}>Valor Total R$ (IPCA): </Text>
-                <Text style={styles.cardText}>{unidade.valor_total_ipca}</Text>
-              </View>
-            </View>
+            <Text style={styles.cardTitulo}>{projeto.titulo.toUpperCase()}</Text>
+            <Text style={styles.cardText}>
+              Data do Contrato: {new Date(projeto.data_contrato).toLocaleDateString('pt-BR')}
+            </Text>
+            <Text style={styles.cardText}>Unidade: {projeto.unidade_embrapii}</Text>
+            <Text style={styles.cardText}>Fonte: {projeto._fonte_recurso}</Text>
+            <Text style={styles.cardText}>Sebrae: {projeto._sebrae}</Text>
           </Pressable>
         )}
         onEndReached={() => {
@@ -165,17 +121,21 @@ export default function UnidadesScreen() {
         }}
         onEndReachedThreshold={0.2}
         contentContainerStyle={{ paddingBottom: 50 }}
+
       />
     </View>
   );
+  
+  
 }
 
 const styles = StyleSheet.create({
+
   areaScroll: {
     flexGrow: 1,
     backgroundColor: theme.colors.background,
     padding: 20,
-    gap: 20,
+    gap: 20
   },
   filterContainer: {
     height: 42,
@@ -189,7 +149,7 @@ const styles = StyleSheet.create({
     width: '12%',
     borderRadius: 15,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   filterInputContainer: {
     backgroundColor: theme.colors.backHeaderFooter,
@@ -198,7 +158,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   filterInput: {
     color: '#fff',
@@ -229,16 +189,5 @@ const styles = StyleSheet.create({
   },
   cardStatus: {
     textAlign: 'right',
-  },
-  cardBox: {
-    marginBottom: 7,
-    borderBottomColor: '#ffffff61',
-    borderBottomWidth: 0.5,
-    paddingBottom: 10,
-    gap: 1.5,
-  },
-  cardValor: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
 });

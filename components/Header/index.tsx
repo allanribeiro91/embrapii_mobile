@@ -1,5 +1,5 @@
 // components/Header/index.tsx
-import theme from '@/app/styles/theme';
+import theme from '@/styles/theme';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 export default function Header({ title }: { title: string }) {
@@ -7,7 +7,7 @@ export default function Header({ title }: { title: string }) {
     <View style={styles.header}>
       <Text style={styles.headerText}>{title}</Text>
       <Image
-        source={require('../../../assets/images/embrapii-logo.png')}
+        source={require('@/assets/images/embrapii-logo.png')}
         resizeMode="contain"
         style={styles.headerLogo}
       />

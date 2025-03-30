@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
-import theme from '../styles/theme';
-import { BodyIndex } from '../components/BodyIndex';
+import theme from '../../styles/theme';
+import { BodyIndex } from '../../components/BodyIndex';
 
 export default function Numeros() {
   return (

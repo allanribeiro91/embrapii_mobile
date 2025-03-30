@@ -1,5 +1,5 @@
-import theme from '@/app/styles/theme';
-import { tabs } from '@/app/tabs';
+import theme from '@/styles/theme';
+import { tabs } from '@/tabs';
 import { StyleSheet, Text, View } from 'react-native';
 
 export const Footer = () => {

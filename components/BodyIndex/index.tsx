@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import theme from '@/app/styles/theme';
+import theme from '@/styles/theme';
 
 interface BodyIndexProps {
   children?: React.ReactNode;

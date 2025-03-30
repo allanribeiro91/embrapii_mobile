@@ -1,11 +1,11 @@
 import { useLocalSearchParams } from 'expo-router';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import rawProjetos from '../../data/all_projetos.json';
-import theme from '../../styles/theme';
-import { IconArrowLeft } from '@/app/components/Icons';
+import theme from '@/styles/theme';
+import { IconArrowLeft } from '@/components/Icons';
 import { router } from 'expo-router';
-import { BodyIndex } from '@/app/components/BodyIndex';
-import Accordion from '@/app/components/Accordion';
+import { BodyIndex } from '@/components/BodyIndex';
+import Accordion from '@/components/Accordion';
 
 export default function ProjetoDetalhes() {
   const { codigo_projeto } = useLocalSearchParams();
@@ -24,7 +24,7 @@ export default function ProjetoDetalhes() {
     <View style={styles.container}>
     {/* Header */}
     <View style={styles.header}>
-    <Pressable onPress={() => router.back()}>
+    <Pressable onPress={() => router.push('/projetos')}>
         <IconArrowLeft color={theme.colors.verdePii} />
       </Pressable>
       <Text style={styles.headerText}>Detalhes do Projeto</Text>
