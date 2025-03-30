@@ -21,7 +21,7 @@
     "**/*.ts",
     "**/*.tsx",
     "titiliumweb"
-  ],
+, "app/numeros"  ],
   "exclude": [
     "node_modules"
   ]

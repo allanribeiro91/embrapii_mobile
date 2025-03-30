@@ -24,12 +24,11 @@ export default function ProjetoDetalhes() {
     <View style={styles.container}>
     {/* Header */}
     <View style={styles.header}>
-    <Pressable onPress={() => router.push('/projetos')}>
+      <Pressable onPress={() => router.push('/projetos')}>
         <IconArrowLeft color={theme.colors.verdePii} />
       </Pressable>
       <Text style={styles.headerText}>Detalhes do Projeto</Text>
     </View>
-
       <BodyIndex>
               <View style={styles.conteudo}>
                 <View style={styles.card}>
@@ -195,7 +194,7 @@ export default function ProjetoDetalhes() {
                   </View>
                 </Accordion> */}
               </View>
-            </BodyIndex>
+      </BodyIndex>
     </View>
   );
 }

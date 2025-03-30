@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import theme from '../../styles/theme';
 import { BodyIndex } from '../../components/BodyIndex';
+import { router } from 'expo-router';
 
 export default function Numeros() {
   return (
@@ -12,10 +13,13 @@ export default function Numeros() {
         </Text>
 
         <View style={styles.gridCards}>
-          <View style={styles.card}>
+          <Pressable
+            style={styles.card}
+            onPress={() => router.push('/numeros/projetos_contratados')}
+          >
             <Text style={styles.cardTitle}>Projetos Contratados</Text>
             <Text style={styles.cardValue}>3.124</Text>
-          </View>
+          </Pressable>
 
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Empresas{'\n'}Apoiadas</Text>
@@ -30,7 +34,9 @@ export default function Numeros() {
 
         <View style={styles.gridCards}>
           <View style={styles.cardTotalValue}>
-            <Text style={styles.cardTitle}>Valor Total Contratado R$ (IPCA)</Text>
+            <Text style={styles.cardTitle}>
+              Valor Total Contratado R$ (IPCA)
+            </Text>
             <Text style={styles.cardValue}>1,136 Bi</Text>
           </View>
           <View style={styles.card}>
@@ -38,6 +44,7 @@ export default function Numeros() {
             <Text style={styles.cardValue}>2.84</Text>
           </View>
         </View>
+        
         <View style={styles.gridCards}>
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Valor Embrapii</Text>
@@ -59,7 +66,7 @@ export default function Numeros() {
         </View>
 
         <View style={styles.gridCards}>
-        <View style={styles.card}>
+          <View style={styles.card}>
             <Text style={styles.cardTitle}>Projetos{'\n'}Concluídos</Text>
             <Text style={styles.cardValue}>2.405</Text>
           </View>
