@@ -103,9 +103,9 @@ export default function UnidadesScreen() {
           <Pressable
             style={styles.card}
             onPress={() =>
-              router.navigate({
-                pathname: '/projetos/[codigo_projeto]',
-                params: { codigo_projeto: unidade.unidade },
+              router.push({
+                pathname: '/unidades/[unidade]/identificacao',
+                params: { unidade: unidade.unidade },
               })
             }
           >

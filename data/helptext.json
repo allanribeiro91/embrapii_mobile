@@ -1,0 +1,23 @@
+[
+  {
+    "id": "0",
+    "type": "helptext",
+    "module": "Números: Projetos Contratados",
+    "title": "Número de Projetos Contratados nos Últimos 30 dias",
+    "description": "Número de projetos contratados nos últimos 30 dias. O percentual representa a variação em relação ao período imediatamente anterior, ou seja, os 30 dias anteriores ao intervalo atual. Esse indicador permite analisar a tendência recente da contratação de projetos em comparação com o período precedente."
+  },
+  {
+    "id": "1",
+    "type": "helptext",
+    "module": "Números: Projetos Contratados",
+    "title": "Número de Projetos Contratados nos Últimos 90 dias",
+    "description": "Número de projetos contratados nos últimos 90 dias. O percentual representa a variação em relação ao período imediatamente anterior, ou seja, os 90 dias anteriores ao intervalo atual. Esse indicador permite analisar a tendência recente da contratação de projetos em comparação com o período precedente."
+  },
+  {
+    "id": "2",
+    "type": "helptext",
+    "module": "Números: Projetos Contratados",
+    "title": "Número de Projetos Contratados nos Últimos 180 dias",
+    "description": "Número de projetos contratados nos últimos 180 dias. O percentual representa a variação em relação ao período imediatamente anterior, ou seja, os 180 dias anteriores ao intervalo atual. Esse indicador permite analisar a tendência recente da contratação de projetos em comparação com o período precedente."
+  }
+]
